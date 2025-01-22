@@ -45,11 +45,16 @@ export class CreateMovieDto {
 
     @IsInt()
     @IsPositive()
-    @Min(1, {message: "duration must not be less than 1"}) //saber que existe para enviar mensajee
+    @Min(1, { message: "duration must not be less than 1" }) //saber que existe para enviar mensajee
     @Max(300)
     duration: number;
 
     @IsOptional()
     @IsBoolean()
     isActive?: boolean;
+
+    @IsOptional()
+    @IsArray()
+    @IsString({ each: true })
+    postersUrls?: string[];
 }

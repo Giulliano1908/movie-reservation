@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { MovieImage } from "./";
 
 @Entity('movies')
 export class Movie {
@@ -15,7 +16,15 @@ export class Movie {
     @Column('text')
     description: string;
 
-    // posterUrl : continue...
+    @OneToMany(
+        () => MovieImage,
+        movieImage => movieImage.movie,
+        {
+            cascade: true, //para eliminar en cascada
+            eager: true,
+        }
+    )
+    postersUrls?: MovieImage[];
 
     @Column('text', {
         array: true, //Can validate with Enum

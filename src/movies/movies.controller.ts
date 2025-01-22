@@ -30,7 +30,7 @@ export class MoviesController {
 
   @Get(':term')
   findOne(@Param('term') term: string) {
-    return this.moviesService.findOne(term);
+    return this.moviesService.findOnePlain(term);
   }
 
   @Patch(':id')
