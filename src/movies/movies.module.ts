@@ -11,7 +11,7 @@ import { Movie, MovieImage } from './entities';
     TypeOrmModule.forFeature(
       [
         Movie,
-        MovieImage
+        MovieImage,
       ]
     )
   ]

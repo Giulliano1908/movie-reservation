@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MoviesModule } from './movies/movies.module';
 import { CommonModule } from './common/common.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -22,7 +23,9 @@ import { CommonModule } from './common/common.module';
 
     MoviesModule,
 
-    CommonModule
+    CommonModule,
+
+    FilesModule
   ],
 
 })
